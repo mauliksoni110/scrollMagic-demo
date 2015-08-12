@@ -5,81 +5,191 @@
   <meta charset="utf-8">
   <title>Scroll Magic Example</title>
   <link rel="stylesheet" href="libs\bootstrap\dist\css\bootstrap.css" charset="utf-8">
-  <link rel="stylesheet" href="libs\bootflat\css\bootflat.css" charset="utf-8">
+  <link rel="stylesheet" href="css\bootflat-edited.css" charset="utf-8">
+  <link rel="stylesheet" href="css\main.css" charset="utf-8">
 </head>
 
 <body>
   <div class="Main-wrapper container-fluid">
     <div class="header-wrapper row">
       <div class="headerInner col-xs-12">
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
-      </div>
+        <div class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Brand</a>
+            </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </div>
+          <!-- /.container-fluid -->
+        </div>
       </div>
-      <div class="Content-wrapper">
-        <div class="section section1"></div>
-        <div class="section section2"></div>
-        <div class="section section3"></div>
-        <div class="section section4"></div>
-        <div class="section section5"></div>
+    </div>
+    <div class="Content-wrapper row">
+      <div class="section section1 col-xs-12">
+        <div class="sectionInner boxes-wrapper">
+          <div class="box-sizer col-sm-1"></div>
+          <div class="box-item box-item1 col-sm-5 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/600/333333/999999" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item2 col-sm-3 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/300/333333/999999" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, assumenda.</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item3 col-sm-3 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/300/BA1616/fff" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item4 col-sm-3 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/300/00D7BA/fff" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit natus quisquam consequuntur voluptas dolorem recusandae, repellat asperiores laboriosam illo porro!</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item5 col-sm-4 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/400/2055A5/fff" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus accusantium, fugiat aperiam!</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item6 col-sm-3 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/300/BA1616/fff" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae soluta perspiciatis, ab nobis dolorem doloribus!</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item7 col-sm-2 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/400/441C94/fff" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-item box-item8 col-sm-3 toBeAnimated">
+            <div class="box-item-inner thumbnail">
+              <img src="http://dummyimage.com/400/BA1616/fff" alt="" />
+              <div class="caption">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="section section2 col-xs-12">
+        <h2 class="sec-2-header">Lorem ipsum dolor sit.</h2>
+        <div class="part part-1 clearfix imgRight">
+          <img src="http://dummyimage.com/200/4c5dd2/fff" alt="" class="pull-right inContentImg">
+          <div class="part-content">
+            <h3 class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, laboriosam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus mollitia odio, nobis dicta quia assumenda impedit illum aliquam enim, nesciunt velit recusandae illo. Mollitia cum dolore dignissimos, fugiat id voluptatum?</p>
+          </div>
+        </div>
+        <div class="part part-2 clearfix imgLeft">
+          <img src="http://dummyimage.com/200/999/333" alt="" class="pull-left inContentImg">
+          <div class="part-content">
+            <h3 class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, laboriosam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus mollitia odio, nobis dicta quia assumenda impedit illum aliquam enim, nesciunt velit recusandae illo. Mollitia cum dolore dignissimos, fugiat id voluptatum?</p>
+          </div>
+        </div>
+        <div class="part part-3 clearfix imgRight">
+          <img src="http://dummyimage.com/200/4c5dd2/fff" alt="" class="pull-right inContentImg">
+          <div class="part-content">
+            <h3 class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, laboriosam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus mollitia odio, nobis dicta quia assumenda impedit illum aliquam enim, nesciunt velit recusandae illo. Mollitia cum dolore dignissimos, fugiat id voluptatum?</p>
+          </div>
+        </div>
+      </div>
+      <div class="section section3 col-xs-12">
+        
+      </div>
+      <div class="section section4 col-xs-12"></div>
+      <div class="section section5 col-xs-12"></div>
     </div>
   </div>
   <script src="libs\bootflat\js\jquery-1.10.1.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $j = jQuery.noConflict();
+  </script>
   <script src="libs\bootstrap\dist\js\bootstrap.min.js" charset="utf-8"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js" charset="utf-8"></script>
+  <script src="libs\scrollmagic\jquery.scrollmagic.js" charset="utf-8"></script>
   <script src="libs\bootflat\js\icheck.min.js" charset="utf-8"></script>
   <script src="libs\bootflat\js\jquery.fs.selecter.min.js" charset="utf-8"></script>
   <script src="libs\bootflat\js\jquery.fs.stepper.min.js" charset="utf-8"></script>
+  <script src="libs\masonry\masonry.min.js" charset="utf-8"></script>
+  <script src="libs\smoothscroll.js" charset="utf-8"></script>
+  <script src="js\main.js" charset="utf-8"></script>
 </body>
 
 </html>

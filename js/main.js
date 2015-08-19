@@ -14,58 +14,72 @@ $j(window).load(function() {
                               //Dynamic Values
 var R_SECTION_1_HEIGHT = parseInt($j('.section-1 .sectionInner.boxes-wrapper').outerHeight()) + 100;
 var R_HEADER_HEIGHT = 50;
-
+var R_VIEWPORT = viewport();
 
 
 var counter_1_done = false;
 
-$j('.section-1-main-text-anim-wrap .section-1-main-text').css('margin-top',-$j('.section-1-main-text-anim-wrap .section-1-main-text').outerHeight());
 
-TweenMax.to('.section-1-main-text-anim-wrap .section-1-main-text',1.2,{delay:1,'margin-top':0,ease:Power4.easeOut});
-TweenMax.to('.section-1-main-text-anim-wrap',1.2,{delay:1,'margin-top':0,ease:Power4.easeOut});
-TweenMax.staggerTo('.section-1-sub-text-anim-wrap,.section-1-link-anim-wrap',0.9,{delay:2.5,'top':0,'opacity':1,ease:Power4.easeOut},0.2);
       //HIDE LOADING SCREEN
 setTimeout(function(){TweenMax.to('.main-loading-wrapper',0.4,{opacity:0,onComplete:function(){$j('.main-loading-wrapper').hide();}});},300);
 
 
 var smController = new ScrollMagic.Controller();
 
+
                   /****************SECTION 1 STARTS****************/
 
-
-
+              //Header Animation starts
 var headerTween = new TweenMax.to('.navbar-fixed-top', 0.2, {
 "padding-top":0,
 "padding-bottom":0,
 'background-color':'rgb(55, 188, 155)'
-},function(){
-$j('.Content-wrapper .section-1 .box-item').removeClass('toBeAnimated');
 });
-
 
 var sceneHeader = new ScrollMagic.Scene({offset:1,triggerHook:"onLeave",duration:40
 })
 .setTween(headerTween)
 .addTo(smController);
-//.addIndicators();
-//
-//
-// startTl = new TimelineMax();
-// startTl.add(TweenMax.staggerTo('.Content-wrapper .section-1 .box-item', 0.4, {
-// y:0,
-// "opacity":"1",
-// delay:0.3
-// },0.1,function(){
-//   $j('.Content-wrapper .section-1 .box-item').removeClass('toBeAnimated');
-// }));
-// startTl.play();
-//
-// var sceneSection1 = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .section.section-1',offset:R_SECTION_1_HEIGHT,triggerHook:'onEnter'
-// })
-// .setPin('.Content-wrapper .section.section-1')
-// .addTo(smController);
-// //.addIndicators();
+            //Header Animation Ends
 
+
+            //Center text Scene Starts
+$j('.section-1-text-wrapper').css('margin-top',-($j('.section-1-text-wrapper').outerHeight())/2+'px');
+$j('.section-1-main-text-anim-wrap').css('margin-top','-120px');
+
+$j('.section-1-main-text-anim-wrap .section-1-main-text').css('margin-top',-$j('.section-1-main-text-anim-wrap .section-1-main-text').outerHeight());
+
+TweenMax.to('.section-1-main-text-anim-wrap .section-1-main-text',1.2,{delay:1,'margin-top':0,ease:Power4.easeOut});
+TweenMax.to('.section-1-main-text-anim-wrap',1.2,{delay:1,'margin-top':0,ease:Power4.easeOut});
+TweenMax.staggerTo('.section-1-sub-text-anim-wrap,.section-1-link-anim-wrap',0.9,{delay:2.5,'top':0,'opacity':1,ease:Power4.easeOut,onComplete:bottomBoxesAnim},0.2);
+            //Center text Scene Ends
+
+            //Bottom Boxes animatin starts Ends
+function bottomBoxesAnim() {
+  var section1_boxes_timeline = new TimelineMax();
+  $j('.section-1-boxes-wrapper .panel').each(function() {
+    var $this = $j(this);
+    section1_boxes_timeline.to($this,0.3,{'margin-top':-$this.outerHeight()-10+'px',onComplete:function(){$this.addClass('animComplete');}});
+  });
+}
+            //Bottom Boxes animatin Ends
+
+            //Background image parallex Starts
+var section1_background_tween = TweenMax.to('.section.section-1',0.5,{'background-position':'50% '+R_VIEWPORT.height/2+'px'});
+
+var sceneSection1_background = new ScrollMagic.Scene({triggerHook:"onLeave",duration:"100%"
+})
+.setTween(section1_background_tween)
+.addTo(smController)
+.addIndicators();
+            //Background image parallex Ends
+
+
+bottomBoxesPositionSet = function(){
+  $j('.section-1-boxes-wrapper .panel.animComplete').each(function() {
+    $j(this).css('margin-top',-$j(this).outerHeight()-10+'px');
+  });
+};
                   /****************SECTION 1 Ends****************/
 
 
@@ -137,6 +151,17 @@ var sceneSection3 = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .sec
 
                                             //SCROLLMAGIC SETTINGS ENDS
 
-
-
 });
+
+
+
+
+
+function viewport() {
+    var e = window, a = 'inner';
+    if (!('innerWidth' in window )) {
+        a = 'client';
+        e = document.documentElement || document.body;
+    }
+    return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+}

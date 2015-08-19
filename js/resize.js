@@ -1,14 +1,17 @@
-$j(window).load(function(){
-  resizeCallback();
-});
+on_resize(function(){
 
-on_resize(function() {
-  resizeCallback();
-});
-
-resizeCallback = function(){
   R_SECTION_1_HEIGHT = parseInt($j('.section1 .sectionInner.boxes-wrapper').outerHeight()) + 100;
-};
+  R_VIEWPORT = viewport();
+
+
+
+  /**** Section 1 Center text Vertical align Center*****/
+  $j('.section-1-text-wrapper').css('margin-top',-($j('.section-1-text-wrapper').outerHeight())/2+'px');
+
+  /**** Section 1 Bottom Boxes*****/
+  bottomBoxesPositionSet();
+
+});
 
 
 function on_resize(c, t) {

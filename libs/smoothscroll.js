@@ -261,10 +261,10 @@ var ssc_uniqueID = function() {
        return t.ssc_uniqueID || (t.ssc_uniqueID = e++)
    }
 }();
-//$j.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
-//if ($j.browser.chrome) {
+var is_chrome = /chrome/.test(navigator.userAgent.toLowerCase());
+if (is_chrome) {
    ssc_addEvent("mousedown", ssc_mousedown);
    ssc_addEvent("mousewheel", ssc_wheel);
    ssc_addEvent("load", ssc_init)
-//}
+}
 ;

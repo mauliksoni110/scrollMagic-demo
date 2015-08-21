@@ -97,7 +97,7 @@ section1_bottomBoxesPositionSet = function(){
 
 /****************SECTION 2 STARTS****************/
 //// Section 2 HEADER
-var section2headerTween = TweenMax.from('.Content-wrapper .section.section-2 h2',1,{'top':300});
+var section2headerTween = TweenMax.from('.Content-wrapper .section.section-2 h2',1,{'top':300,'opacity':0});
 
 var sceneSection2header = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .section.section-2',offset:200,duration:200,triggerHook:'onEnter'
 })
@@ -109,11 +109,11 @@ var sceneSection2header = new ScrollMagic.Scene({triggerElement:'.Content-wrappe
 $j('.section-2 .part').each(function(){
   var partTween;
   if($j(this).hasClass('fromRight'))
-    partTween = TweenMax.from($j(this),0.3,{'right':'-120%'});
+    partTween = TweenMax.from($j(this),0.4,{'right':'-120%','opacity':0});
   else
-    partTween = TweenMax.from($j(this),0.3,{'left':'-120%'});
+    partTween = TweenMax.from($j(this),0.4,{'left':'-120%','opacity':0});
 
-  var sceneSection2part1 = new ScrollMagic.Scene({triggerElement:$j(this),duration:400,offset:-300
+  var sceneSection2part1 = new ScrollMagic.Scene({triggerElement:$j(this),offset:-300
   })
   .setTween(partTween)
   .addTo(smController);

@@ -8,6 +8,8 @@ $j(document).ready(function(){
   /*******Give MIN-HEIGHT (viewport height) to each section on document load*****/
   sections_MinHeight();
 
+  /*************scroll to Top after Document ready  ****************/
+  $j('html, body').animate({'scrollTop':0}, 50);
 
 });
 
@@ -33,8 +35,10 @@ var R_VIEWPORT = viewport();
 var counter_1_done = false;
 
 
-/************* Make page scrollable again after it has loaded  ****************/
+/************* Make page scrollable again and scroll to Top after page has been loaded  ****************/
 $j('html, body').css({ 'overflow': '', 'height': '' });
+$j('html, body').animate({'scrollTop':0}, 50);
+
 
 //HIDE LOADING SCREEN
 setTimeout(function(){TweenMax.to('.main-loading-wrapper',0.4,{opacity:0,onComplete:function(){$j('.main-loading-wrapper').hide();}});},300);
@@ -123,7 +127,6 @@ $j('.section-2 .part').each(function(){
 
 
 
-
 /****************SECTION 3 STARTS****************/
 var timeLineSection3_initShow = new TimelineMax();
 var tweenSection3_initShow_title = TweenMax.to('.init-show-title',2,{"delay":"1","transform":"translateY(-300px)"});
@@ -158,10 +161,44 @@ var sceneSection3 = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .sec
 
 /****************SECTION 3 ENDS****************/
 
+
+/****************SECTION 4 STARTS****************/
+
+var Section4_table_tween = TweenMax.staggerFrom('.section-4-stagger-rows-wrapper .stagger-row',0.6,{y:300,'opacity':0},0.3);
+
+var section4_scene = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .section.section-4', duration:"150%", triggerHook:'onLeave', offset:-R_HEADER_HEIGHT,
+})
+.setPin('.Content-wrapper .section.section-4')
+.setTween(Section4_table_tween)
+.addTo(smController);
+
+var section4_content_scene = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .section.section-4', triggerHook:'onLeave', offset:-R_HEADER_HEIGHT})
+.setPin('.section-4-inner-wrapper')
+.addTo(smController);
+/****************SECTION 4 ENDS****************/
+
+
+/****************SECTION 5 STARTS****************/
+var Section5_flips_tween = TweenMax.staggerFromTo('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper',0.6,{transform:'rotateX(-180deg)','opacity':0},{transform:'rotateX(0deg)','opacity':1,onComplete:function(){
+  $j('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper').addClass('flip-enabled');
+},onReverseComplete:function(){
+  $j('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper').removeClass('flip-enabled');
+}},0.3);
+
+var section5_content_scene = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .section.section-5', triggerHook:'onLeave', offset:-R_HEADER_HEIGHT,reverse:false})
+.setTween(Section5_flips_tween)
+.addTo(smController);
+
+section5_content_scene.on('start',function(e){
+  if(e.scrollDirection == "REVERSE"){
+    section5_content_scene.reverse();
+  }
+});
+/****************SECTION 5 ENDS****************/
+
+
 //SCROLLMAGIC SETTINGS ENDS
 });
-
-
 
 
 

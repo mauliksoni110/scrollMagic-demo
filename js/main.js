@@ -1,9 +1,11 @@
 
 var masonryBoxes;
+$j('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
+
 $j(document).ready(function(){
 
   /************* Make page not scrollable until it loads  ****************/
-  $j('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
+
 
   /*******Give MIN-HEIGHT (viewport height) to each section on document load*****/
   sections_MinHeight();
@@ -30,7 +32,8 @@ $j(window).load(function() {
 var R_SECTION_1_HEIGHT = parseInt($j('.section-1 .sectionInner.boxes-wrapper').outerHeight()) + 100;
 var R_HEADER_HEIGHT = 50;
 var R_VIEWPORT = viewport();
-
+var R_SECTION_6_CARDS_HEIGHT = [];
+var R_SECTION_6_HEIGHT = parseInt($j('.section.section-6').outerHeight());
 
 var counter_1_done = false;
 
@@ -179,22 +182,46 @@ var section4_scene = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .se
 /****************SECTION 5 STARTS****************/
 var onAllComplete = function(){$j('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper').addClass('flip-enabled');};
 
-var Section5_flips_tween = TweenMax.staggerFromTo('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper',0.4,{transform:'rotateX(-90deg)','opacity':0},{transform:'rotateX(0deg)','opacity':1,onReverseComplete:function(){
+var section5_flips_tween = TweenMax.staggerFromTo('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper',0.4,{transform:'rotateX(-90deg)','opacity':0},{transform:'rotateX(0deg)','opacity':1,onReverseComplete:function(){
   $j('.section-5-main-content-wrapper .flips-wrapper .flip-container .flipper').removeClass('flip-enabled');
   }
 },0.2,onAllComplete);
 
 var section5_content_scene = new ScrollMagic.Scene({triggerElement:'.Content-wrapper .section.section-5', triggerHook:'onLeave', offset:-R_HEADER_HEIGHT,reverse:false})
-.setTween(Section5_flips_tween)
+.setTween(section5_flips_tween)
 .addTo(smController);
 
-section5_content_scene.on('start',function(e){
-  if(e.scrollDirection == "REVERSE"){
-    section5_content_scene.reverse();
-  }
-});
+// section5_content_scene.on('start',function(e){
+//   if(e.scrollDirection == "REVERSE"){
+//     section5_content_scene.reverse();
+//   }
+// });
 /****************SECTION 5 ENDS****************/
 
+
+
+
+/****************SECTION 6 STARTS****************/
+update_Section_6_CardsHeight = function(){
+$j('.section-6-cards-container .cards').each(function(i){
+    R_SECTION_6_CARDS_HEIGHT[i]=$j(this).outerHeight();
+  });
+};
+
+update_Section_6_CardsHeight();
+
+$j('.section-6-cards-container .cards').each(function(i){
+  i +=1;
+  var scene = new ScrollMagic.Scene({ triggerElement:'.section-6-cards-container .card-'+i,duration:R_SECTION_6_CARDS_HEIGHT[i-1]})
+								.setClassToggle('.list-group-item.item'+i, 'active')
+								.addTo(smController)
+                .addIndicators();
+});
+
+var section6_left_nav_scene = new ScrollMagic.Scene({triggerElement:'.section.section-6',triggerHook:'onLeave',offset:-R_HEADER_HEIGHT,duration:R_SECTION_6_HEIGHT})
+.setPin('.section-6 .list-group')
+.addTo(smController);
+/****************SECTION 6 ENDS****************/
 
 //SCROLLMAGIC SETTINGS ENDS
 });

@@ -275,8 +275,8 @@ $j(document).on('click','ul.nav.navbar-nav li a',function(e){
   var selectedSection = $j('.section.section-'+sectionNumber);
   var sceneDuration, scrollVal;
   if(selectedSection.hasClass('has-duration')){
-    sceneDuration = window['section'+sectionNumber+'_scene'].duration();
-    scrollVal = window['section'+sectionNumber+'_scene'].scrollOffset() + sceneDuration;
+    sceneDuration = scenes['scene'+sectionNumber].duration();
+    scrollVal = scenes['scene'+sectionNumber].scrollOffset() + sceneDuration;
     main_controller.scrollTo(scrollVal,3);
   }else{
     scrollVal = $j('.section.section-'+sectionNumber).offset().top - R_HEADER_HEIGHT;

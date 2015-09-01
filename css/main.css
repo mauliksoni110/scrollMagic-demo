@@ -16,6 +16,7 @@ zoom: 1!important;
 .navbar-default:nth-child(n) {filter:none}
 .navbar-default{border-color:#213540;}
 .navbar-default .navbar-text, .navbar-default .navbar-nav > li > a{color:#fff;}
+.navbar-default .navbar-brand{color:#fff;}
 .navbar-brand{padding: 10px 15px;}
                       /**********HEADER ENDS*********/
 

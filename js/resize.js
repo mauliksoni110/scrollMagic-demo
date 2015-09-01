@@ -1,8 +1,9 @@
 on_resize(function(){
 
   R_SECTION_1_HEIGHT = parseInt($j('.section1 .sectionInner.boxes-wrapper').outerHeight()) + 100;
+  R_HEADER_HEIGHT = 100;
   R_VIEWPORT = viewport();
-  R_SECTION_6_HEIGHT = parseInt($j('.section.section-6').outerHeight());
+  R_SECTION_6_LEFT_NAV_PIN_DURATION = parseInt($j('.section.section-6').outerHeight()) - parseInt($j('.section.section-6 .list-group').outerHeight()) - ($j('.section.section-6 .list-group').offset().top - $j('.section.section-6').offset().top) - R_HEADER_HEIGHT;
 
 
   /**** Section 1 Center text Vertical align Center*****/

@@ -20,7 +20,7 @@ zoom: 1!important;
                       /**********HEADER ENDS*********/
 
 /**********Main Content STARTS*********/
-.no-js .main-loading-wrapper{display:none;}
+.nojs .main-loading-wrapper{display:none;}
 .main-loading-wrapper{position: fixed;top:0px;left:0px;right:0px;left:0px;height:100%;width:100%;background:#333333;z-index: 2000;}
 .main-loading-wrapper img{display: inline-block;position: absolute;top:50%;left:50%;margin-left: -38px;margin-top:-38px;}
 .Content-wrapper{overflow: hidden;}
